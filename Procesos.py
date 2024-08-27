@@ -13,7 +13,7 @@ class Procesos:
         m = suma % len(text)
         print("suma: " + str(suma) + " promedio: " + str(m))
         ###sin acabar
-
+        resultado = text[:m] + l + text[m + 1:]
         return resultado
 
 
