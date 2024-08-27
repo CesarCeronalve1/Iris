@@ -4,6 +4,8 @@ class Procesos:
     #diccionario = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     MX = 10
 
+
+
     def Fibinazi(self,txt):
         resultado = ""
         resultado = txt[0]
