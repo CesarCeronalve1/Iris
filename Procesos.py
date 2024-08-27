@@ -1,6 +1,7 @@
 import math 
 class Procesos:
-    diccionario = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789!#$%&=?¿!¡@._-,;:+"
+    #diccionario = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789!#$%&=?¿!¡@._-,;:+"
+    diccionario = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-+0123456789"
     #diccionario = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     MX = 10
 
@@ -11,14 +12,38 @@ class Procesos:
             suma  = suma + self.numerar(text[i])
         l = self.n2l(int(suma/(len(text))))
         m = suma % len(text)
-        print("suma: " + str(suma) + " promedio: " + str(m))
+        # print("suma: " + str(suma) + " promedio: " + str(m))
         ###sin acabar
         resultado = text[:m] + l + text[m + 1:]
         return resultado
+    
+    
+    def moduloC(self,text):
+        resultado = ""
+        suma = 0
+        for i in range(len(text)):
+            suma  = suma + self.numerar(text[i])
+        l = self.n2l(int(suma/(len(text))))
+        m = suma % len(text)
+        # print("suma: " + str(suma) + " promedio: " + str(m))
+        ###sin acabar
+        resultado = self.CCesar(text,m)
+        return resultado
 
 
+    def CCesar(self,text,n):
+        resultado = ""
+        dic = self.diccionario[1:]
+        for i in range(len(text)):
+            m = self.numerar(text[i])
+            r = n+m
+            while r > len(dic):
+                r = r - len(dic)
+            resultado = resultado + self.n2l(r)
 
-    def Fibinazi(self,txt):
+        return resultado
+
+    def Fibonazi(self,txt):
         resultado = ""
         resultado = txt[0]
         for i in range(1,len(txt)):
@@ -31,12 +56,10 @@ class Procesos:
     def baraja(self,text):
         r = ""
         for i in range(1,len(text),2):
-            print(text[i])
             r = r + text[i]
             r = r + text[i-1]
         if len(text) % 2 != 0:
             r = r + text[-1:]    
-        print("resultado = "+ r)
         return r
 
     def numerar(self,L):
@@ -59,7 +82,6 @@ class Procesos:
             for j in range(len(dic)):
                 if text[i] == dic[j]:
                     resultado = resultado + dicr[j]
-        print("resultado invertido: " + resultado)
         return resultado
 
     def Viegener(self,data1,data2):
@@ -85,12 +107,12 @@ class Procesos:
             # print("texti: " + text[i])
             resultado = resultado + text[i]
         if len(text) % 2 != 0:
-            print(math.ceil(len(text)/2))
+            # print(math.ceil(len(text)/2))
             resultado = resultado + text[math.ceil(len(text)/2)-1]
-        print("resu "+resultado)
+        # print("resu "+resultado)
         return resultado
 
 
-p = Procesos()
-print("Metodo:" + p.moduloR("cesar"))
+# p = Procesos()
+# print("Metodo:" + p.moduloC("cesar"))
 
