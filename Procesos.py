@@ -4,6 +4,18 @@ class Procesos:
     #diccionario = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     MX = 10
 
+    def moduloR(self,text):
+        resultado = ""
+        suma = 0
+        for i in range(len(text)):
+            suma  = suma + self.numerar(text[i])
+        l = self.n2l(int(suma/(len(text))))
+        m = suma % len(text)
+        print("suma: " + str(suma) + " promedio: " + str(m))
+        ###sin acabar
+
+        return resultado
+
 
 
     def Fibinazi(self,txt):
@@ -26,10 +38,6 @@ class Procesos:
             r = r + text[-1:]    
         print("resultado = "+ r)
         return r
-
-
-
-
 
     def numerar(self,L):
         for i,letra in enumerate(self.diccionario):
@@ -54,17 +62,12 @@ class Procesos:
         print("resultado invertido: " + resultado)
         return resultado
 
-
-
-
     def Viegener(self,data1,data2):
         resultado = ""
         if len(data1) < self.MX:
             data1 = data1 * math.ceil((self.MX/len(data1)))
-        
         if len(data2) < self.MX:
             data2 = data2 * math.ceil((self.MX/len(data2)))
-
         data1 = data1[:self.MX]
         data2 = data2[:self.MX]
         for i in range(self.MX):
@@ -73,8 +76,21 @@ class Procesos:
                 n = n - len(self.diccionario) 
             resultado = resultado + self.n2l(n)
         return resultado
+    
+    def hop(self,text):
+        resultado = ""
+        for i in range(int(len(text)/2)):
+            resultado = resultado + text[-(i+1)] 
+            # print("text-i: " + text[-(i+1)])
+            # print("texti: " + text[i])
+            resultado = resultado + text[i]
+        if len(text) % 2 != 0:
+            print(math.ceil(len(text)/2))
+            resultado = resultado + text[math.ceil(len(text)/2)-1]
+        print("resu "+resultado)
+        return resultado
 
 
 p = Procesos()
-print("Metodo:" + p.baraja("cesar"))
+print("Metodo:" + p.moduloR("cesar"))
 
