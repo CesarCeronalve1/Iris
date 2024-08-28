@@ -1,9 +1,59 @@
 import math 
 class Procesos:
     #diccionario = " abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789!#$%&=?¿!¡@._-,;:+"
-    diccionario = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-+0123456789"
+    diccionario = " abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]|:;<>,.?ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     #diccionario = " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     MX = 10
+
+    def calidad(self,text):
+        resultado = ""
+        # Inicializar las variables
+        A = False  # Indica si hay vocales
+        B = False  # Indica si hay consonantes
+        N = False  # Indica si hay números
+        S = False  # Indica si hay símbolos
+        M = False
+        MI = False
+        # Definir conjuntos de caracteres
+        vocales = set("aeiouAEIOU") & set(self.diccionario)
+        consonantes = set("bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ") & set(self.diccionario)
+        numeros = set("0123456789") & set(self.diccionario)
+        simbolos = set("!@#$%^&*()_+-=[]|;:',.<>?/`~") & set(self.diccionario)
+
+        # Iterar sobre cada carácter en la frase
+        while not A or not B or not N or not S or not M or not MI:
+            A = False  # Indica si hay vocales
+            B = False  # Indica si hay consonantes
+            N = False  # Indica si hay números
+            S = False  # Indica si hay símbolos
+            M = False
+            MI = False
+            text = self.Viegener(text,text)#self.Fibonazi(text))
+            print(text)
+            for char in text:
+                if char in vocales:
+                    A = True
+                    # print("A" + char)
+                if char in consonantes:
+                    B = True
+                    # print("B" + char)
+                if char in numeros:
+                    N = True
+                    # print("n" + char)
+                if char in simbolos:
+                    S = True
+                    # print("s" + char)
+                if char.isupper():
+                    M = True
+                    # print("M" + char)
+                if char.islower():
+                    MI = True
+                    # print("mi" + char)
+        resultado = text
+        # print(resultado)
+        return resultado
+           
+
 
     def moduloR(self,text):
         resultado = ""
@@ -113,6 +163,6 @@ class Procesos:
         return resultado
 
 
-# p = Procesos()
-# print("Metodo:" + p.moduloC("cesar"))
+p = Procesos()
+print("Metodo calidad:" + p.calidad("cesarceron"))
 

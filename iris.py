@@ -21,8 +21,13 @@ for i in codigo:
         contra  = p.invertir(contra) 
     elif i == "6":
         contra  = p.hop(contra)
+    elif i == "7":
+        contra  = p.calidad(contra)
     else:
         print("no valido")
-print(contra) 
+
+contra= p.calidad(contra)
+
+print(f"su contraseña de {p.MX} caracteres es: {contra}") 
 
 
