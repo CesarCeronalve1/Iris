@@ -1,7 +1,8 @@
 #nuevo iris version 3.0 al 2024
 from Procesos import Procesos
-
+version = "3.0.3"
 p = Procesos()
+print(f"Iris version: {version}")
 p.MX = int(input("ingrese la cantidad de caracteres en su contraseña: "))
 clave = input("ingrese su frase clave: ")
 codigo = input("ingrese su codigo de ejecucion: ")
