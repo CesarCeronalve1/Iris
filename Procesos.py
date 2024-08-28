@@ -162,7 +162,7 @@ class Procesos:
         # print("resu "+resultado)
         return resultado
 
-
-# p = Procesos()
-# print("Metodo calidad:" + p.Viegener("ceron","teams"))
+if __name__ == "__main__":
+    p = Procesos()
+    print("Metodo vigener:" + p.Viegener("booring","Development"))
 
