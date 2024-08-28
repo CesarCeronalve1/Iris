@@ -4,8 +4,20 @@ version = "3.0.4"
 p = Procesos()
 print(f"Iris version: {version}")
 p.MX = int(input("ingrese la cantidad de caracteres: "))
-clave = input("ingrese su clave: ")
-codigo = input("ingrese su codigo EJX: ")
+# clave = input("ingrese su clave: ")
+# codigo = input("ingrese su codigo EJX: ")
+# plataforma = input("ingrese su plataforma: ")
+
+def leer_datos_archivo(ruta_archivo):
+    datos = {}
+    with open(ruta_archivo, 'r') as archivo:
+        for linea in archivo:
+            clave, valor = linea.strip().split(':')
+            datos[clave] = valor
+    return datos
+datos = leer_datos_archivo("Data.txt")
+clave = datos.get('clave')
+codigo = datos.get('codigo')
 plataforma = input("ingrese su plataforma: ")
 
 contra = p.Viegener(clave,plataforma)
