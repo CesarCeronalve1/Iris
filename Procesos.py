@@ -28,8 +28,8 @@ class Procesos:
             S = False  # Indica si hay símbolos
             M = False
             MI = False
-            text = self.Viegener(text,text)#self.Fibonazi(text))
-            print(text)
+            text = self.Viegener(text,self.Fibonazi(text))
+            # print(text)
             for char in text:
                 if char in vocales:
                     A = True
@@ -163,6 +163,6 @@ class Procesos:
         return resultado
 
 
-p = Procesos()
-print("Metodo calidad:" + p.calidad("cesarceron"))
+# p = Procesos()
+# print("Metodo calidad:" + p.Viegener("ceron","teams"))
 
