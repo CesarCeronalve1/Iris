@@ -52,9 +52,7 @@ class Procesos:
         resultado = text
         # print(resultado)
         return resultado
-           
-
-
+    
     def moduloR(self,text):
         resultado = ""
         suma = 0
@@ -162,7 +160,11 @@ class Procesos:
         # print("resu "+resultado)
         return resultado
 
+    def piramide(self,text):
+        resultado = ""
+        return resultado
+
 if __name__ == "__main__":
     p = Procesos()
-    print("Metodo vigener:" + p.Viegener("booring","Development"))
+    print("Metodo piramide:" + p.piramide("abc"))
 
